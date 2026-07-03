@@ -6,7 +6,7 @@
   <title>Marketing Manager — Kodo HR</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Baloo+2:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --cream: #F5EFDF;
@@ -115,7 +115,7 @@
     }
 
     .hero-subtitle {
-      font-family: 'Baloo 2', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 18px;
       font-weight: 600;
       color: rgba(245,239,223,0.8);
@@ -219,9 +219,9 @@
     .intro-tag.purple { background: var(--purple); transform: rotate(1deg); }
 
     .intro-card h2 {
-      font-family: 'Baloo 2', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 700;
       margin-bottom: 14px;
       line-height: 1.25;
     }
@@ -288,9 +288,9 @@
     }
 
     .resp-body h3 {
-      font-family: 'Baloo 2', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 19px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--lime);
       margin-bottom: 10px;
     }
@@ -330,9 +330,9 @@
     }
 
     .req-card h3 {
-      font-family: 'Baloo 2', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 17px;
-      font-weight: 800;
+      font-weight: 700;
       padding-bottom: 16px;
       border-bottom: 2px solid var(--black);
       margin-bottom: 24px;
@@ -407,9 +407,9 @@
     .cond-icon { font-size: 26px; margin-bottom: 16px; }
 
     .cond-card h3 {
-      font-family: 'Baloo 2', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 17px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--lime);
       margin-bottom: 12px;
     }
@@ -568,6 +568,173 @@
       color: rgba(255,255,255,0.28);
     }
 
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,10,0.72);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.active { display: flex; }
+
+    .modal-card {
+      background: var(--cream);
+      border: 2px solid var(--black);
+      border-radius: 16px;
+      padding: 48px;
+      max-width: 560px;
+      width: 100%;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: var(--black);
+      line-height: 1;
+      font-family: 'Poppins', sans-serif;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+    .modal-close:hover { opacity: 1; }
+
+    .modal-logo {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 20px;
+      letter-spacing: -1.5px;
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      margin-bottom: 20px;
+    }
+    .modal-logo .sparkle {
+      color: var(--lime);
+      font-size: 13px;
+      transform: translateY(-3px);
+      display: inline-block;
+    }
+
+    .modal-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 36px;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 32px;
+    }
+
+    .modal-field {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(10,10,10,0.1);
+    }
+    .modal-field:last-of-type { border-bottom: none; margin-bottom: 0; }
+
+    .modal-field > label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 10px;
+    }
+
+    .modal-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--white);
+      border: 2px solid var(--black);
+      border-radius: 8px;
+      padding: 12px 16px;
+    }
+
+    .modal-value {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .copy-btn {
+      background: var(--black);
+      color: var(--lime);
+      border: none;
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+    .copy-btn:hover { background: #333; }
+    .copy-btn.copied { background: #1a6e1a; color: #fff; }
+
+    .modal-guide-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .modal-guide-list li {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: #333;
+      padding-left: 20px;
+      position: relative;
+    }
+    .modal-guide-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      top: 3px;
+      font-size: 9px;
+      color: var(--black);
+    }
+
+    .copy-all {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .modal-mailto {
+      display: block;
+      text-align: center;
+      margin-top: 24px;
+      color: #aaa;
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .modal-mailto:hover { color: var(--black); }
+
+    button.cta-btn {
+      cursor: pointer;
+      font-family: 'Archivo Black', sans-serif;
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .hero { padding: 32px 24px 64px; min-height: auto; }
@@ -646,7 +813,7 @@
   </div>
 
   <div class="hero-content">
-    <p class="hero-eyebrow">Córdoba · Part-time · Por objetivos</p>
+    <p class="hero-eyebrow">Córdoba · Por objetivos</p>
     <h1 class="hero-title">
       Marketing<br>
       <span class="hl">Manager</span>
@@ -658,10 +825,10 @@
 <!-- ===== TICKER ===== -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-inner">
-    &nbsp;&nbsp;✦&nbsp; Kodo HR &nbsp;·&nbsp; Marketing Manager &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Part-time &nbsp;·&nbsp; Por objetivos &nbsp;·&nbsp; B2B + B2C &nbsp;·&nbsp;
-    ✦&nbsp; Kodo HR &nbsp;·&nbsp; Marketing Manager &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Part-time &nbsp;·&nbsp; Por objetivos &nbsp;·&nbsp; B2B + B2C &nbsp;·&nbsp;
-    ✦&nbsp; Kodo HR &nbsp;·&nbsp; Marketing Manager &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Part-time &nbsp;·&nbsp; Por objetivos &nbsp;·&nbsp; B2B + B2C &nbsp;·&nbsp;
-    ✦&nbsp; Kodo HR &nbsp;·&nbsp; Marketing Manager &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Part-time &nbsp;·&nbsp; Por objetivos &nbsp;·&nbsp; B2B + B2C &nbsp;·&nbsp;
+    &nbsp;&nbsp;✦&nbsp; Kodo HR &nbsp;·&nbsp; Marketing Manager &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Por objetivos &nbsp;·&nbsp; B2B + B2C &nbsp;·&nbsp;
+    ✦&nbsp; Kodo HR &nbsp;·&nbsp; Marketing Manager &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Por objetivos &nbsp;·&nbsp; B2B + B2C &nbsp;·&nbsp;
+    ✦&nbsp; Kodo HR &nbsp;·&nbsp; Marketing Manager &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Por objetivos &nbsp;·&nbsp; B2B + B2C &nbsp;·&nbsp;
+    ✦&nbsp; Kodo HR &nbsp;·&nbsp; Marketing Manager &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Por objetivos &nbsp;·&nbsp; B2B + B2C &nbsp;·&nbsp;
   </div>
 </div>
 
@@ -790,11 +957,86 @@
     ¿Sos<br><span class="hl">vos?</span>
   </h2>
   <p class="cta-sub">Mandanos tu propuesta — contanos quién sos, qué hacés y por qué Kodo. Sin formularios, sin filtros. Directo a las founders.</p>
-  <a href="mailto:info@kodohr.com?subject=Propuesta%20de%20trabajo%20%E2%80%94%20Marketing%20Manager%20Kodo%20HR" class="cta-btn">
+  <button onclick="openModal()" class="cta-btn">
     Enviar mi propuesta a Kodo ✦
-  </a>
+  </button>
 </section>
 
+
+<!-- ===== MODAL ===== -->
+<div id="modal-overlay" class="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">×</button>
+    <div class="modal-logo">KODO<span class="sparkle">✦</span>HR</div>
+    <h2 class="modal-title">Tu propuesta</h2>
+
+    <div class="modal-field">
+      <label>Para</label>
+      <div class="modal-row">
+        <span class="modal-value">info@kodohr.com</span>
+        <button class="copy-btn" onclick="copyText('info@kodohr.com', this)">Copiar</button>
+      </div>
+    </div>
+
+    <div class="modal-field">
+      <label>Asunto</label>
+      <div class="modal-row">
+        <span class="modal-value">Mi propuesta de Mkt para Kodo</span>
+        <button class="copy-btn" onclick="copyText('Mi propuesta de Mkt para Kodo', this)">Copiar</button>
+      </div>
+    </div>
+
+    <div class="modal-field">
+      <label>Contenido — contanos</label>
+      <ul class="modal-guide-list">
+        <li>Quién sos y qué hacés — en pocas líneas, no el CV.</li>
+        <li>El trabajo que más te representa: links, portfolio, casos concretos.</li>
+        <li>Por qué Kodo específicamente — qué viste, qué te interesa del rol.</li>
+        <li>Cómo pensás la compensación y la modalidad de trabajo.</li>
+        <li>Algo que no entra en el CV pero que suma.</li>
+      </ul>
+      <button class="copy-btn copy-all" onclick="copyTemplate(this)">Copiar plantilla de mail</button>
+    </div>
+
+    <a href="mailto:info@kodohr.com?subject=Mi%20propuesta%20de%20Mkt%20para%20Kodo" class="modal-mailto">
+      O abrí directo en tu correo →
+    </a>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById('modal-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+  function copyText(text, btn) {
+    navigator.clipboard.writeText(text).then(function() {
+      var original = btn.textContent;
+      btn.textContent = '¡Copiado!';
+      btn.classList.add('copied');
+      setTimeout(function() { btn.textContent = original; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+  function copyTemplate(btn) {
+    var template = "Para: info@kodohr.com\nAsunto: Mi propuesta de Mkt para Kodo\n\nHola,\n\nQuién soy y qué hago:\n[presentate en pocas líneas]\n\nMi trabajo más representativo:\n[links, portfolio o casos concretos]\n\nPor qué Kodo:\n[qué viste, qué te interesa específicamente]\n\nMi propuesta de compensación y modalidad:\n[cómo pensás trabajar y qué estructura proponés]\n\nAlgo más:\n[lo que no entra en el CV pero suma]";
+    navigator.clipboard.writeText(template).then(function() {
+      var original = btn.textContent;
+      btn.textContent = '¡Plantilla copiada!';
+      btn.classList.add('copied');
+      setTimeout(function() { btn.textContent = original; btn.classList.remove('copied'); }, 2500);
+    });
+  }
+</script>
 
 <!-- ===== FOOTER ===== -->
 <footer>
