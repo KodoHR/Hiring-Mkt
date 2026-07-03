@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing Manager — Kodo HR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Baloo+2:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F5EFDF;
+      --black: #0A0A0A;
+      --lime: #C8F000;
+      --purple: #8C93D9;
+      --charcoal: #2B2B29;
+      --white: #FFFFFF;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--black);
+      color: var(--white);
+      padding: 48px 64px 96px;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      z-index: 3;
+    }
+
+    .logo {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 30px;
+      letter-spacing: -2px;
+      color: var(--white);
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .logo .sparkle {
+      color: var(--lime);
+      font-size: 18px;
+      transform: translateY(-4px);
+      display: inline-block;
+    }
+
+    .hero-badge {
+      background: var(--lime);
+      color: var(--black);
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 100px;
+      border: 2px solid var(--black);
+      transform: rotate(2deg);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      padding-top: 80px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(60px, 9vw, 116px);
+      letter-spacing: -5px;
+      line-height: 0.88;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 36px;
+    }
+
+    .hero-title .hl {
+      background: var(--lime);
+      color: var(--black);
+      padding: 2px 10px;
+      display: inline-block;
+      transform: rotate(-1deg);
+      line-height: 1.05;
+    }
+
+    .hero-subtitle {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(245,239,223,0.8);
+      max-width: 520px;
+      line-height: 1.55;
+    }
+
+    /* Sunburst */
+    .sunburst {
+      position: absolute;
+      bottom: -100px;
+      right: -100px;
+      width: 520px;
+      height: 520px;
+      opacity: 0.14;
+      z-index: 1;
+    }
+
+    /* Triangle fan */
+    .tri-fan {
+      position: absolute;
+      top: 30px;
+      right: 0;
+      width: 180px;
+      height: 200px;
+      z-index: 2;
+      opacity: 0.55;
+    }
+
+    /* Sparkle accent near title */
+    .hero-sparkle {
+      position: absolute;
+      right: 80px;
+      bottom: 160px;
+      font-size: 32px;
+      color: var(--lime);
+      opacity: 0.6;
+      z-index: 2;
+    }
+
+    /* ===== TICKER ===== */
+    .ticker {
+      background: var(--lime);
+      border-top: 2px solid var(--black);
+      border-bottom: 2px solid var(--black);
+      padding: 13px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-block;
+      animation: scroll-ticker 28s linear infinite;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    @keyframes scroll-ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ===== INTRO ===== */
+    .intro {
+      background: var(--cream);
+      padding: 80px 64px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .intro-card {
+      background: var(--white);
+      border: 2px solid var(--black);
+      border-radius: 14px;
+      padding: 44px 40px 40px;
+      position: relative;
+    }
+
+    .intro-tag {
+      position: absolute;
+      top: -14px;
+      left: 24px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 13px;
+      border: 2px solid var(--black);
+      border-radius: 4px;
+    }
+
+    .intro-tag.lime { background: var(--lime); transform: rotate(-1.5deg); }
+    .intro-tag.purple { background: var(--purple); transform: rotate(1deg); }
+
+    .intro-card h2 {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+
+    .intro-card p {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: #3a3a3a;
+    }
+
+    /* ===== RESPONSABILIDADES ===== */
+    .resp {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 80px 64px;
+    }
+
+    .label-outline {
+      display: inline-block;
+      border: 2px solid;
+      border-radius: 4px;
+      padding: 5px 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    .label-lime { border-color: var(--lime); color: var(--lime); }
+
+    .resp-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(34px, 4.5vw, 56px);
+      letter-spacing: -3px;
+      text-transform: uppercase;
+      line-height: 0.92;
+      color: var(--white);
+      margin-bottom: 60px;
+    }
+
+    .resp-title em { color: var(--lime); font-style: normal; }
+
+    .resp-list { display: flex; flex-direction: column; }
+
+    .resp-item {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 28px;
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      align-items: start;
+    }
+
+    .resp-item:last-child { border-bottom: none; }
+
+    .resp-num {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 52px;
+      color: var(--purple);
+      line-height: 1;
+      letter-spacing: -3px;
+    }
+
+    .resp-body h3 {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--lime);
+      margin-bottom: 10px;
+    }
+
+    .resp-body p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.72);
+    }
+
+    /* ===== REQUISITOS ===== */
+    .req {
+      background: var(--cream);
+      padding: 80px 64px;
+    }
+
+    .req-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(30px, 4vw, 48px);
+      letter-spacing: -3px;
+      text-transform: uppercase;
+      line-height: 0.92;
+      margin-bottom: 48px;
+    }
+
+    .req-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .req-card {
+      background: var(--white);
+      border: 2px solid var(--black);
+      border-radius: 14px;
+      padding: 36px;
+    }
+
+    .req-card h3 {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--black);
+      margin-bottom: 24px;
+    }
+
+    .req-card.excluyentes h3 { color: var(--black); }
+    .req-card.deseables h3   { color: var(--purple); }
+
+    .req-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .req-card ul li {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #333;
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .req-card ul li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 9px;
+    }
+
+    .req-card.excluyentes ul li::before { color: var(--black); }
+    .req-card.deseables   ul li::before { color: var(--purple); }
+
+    /* ===== CONDICIONES ===== */
+    .cond {
+      background: var(--black);
+      padding: 80px 64px;
+    }
+
+    .cond-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(30px, 4vw, 48px);
+      letter-spacing: -3px;
+      text-transform: uppercase;
+      line-height: 0.92;
+      color: var(--white);
+      margin-bottom: 48px;
+    }
+
+    .cond-title em { color: var(--lime); font-style: normal; }
+
+    .cond-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .cond-card {
+      border: 2px solid rgba(255,255,255,0.15);
+      border-radius: 14px;
+      padding: 36px 32px;
+      color: var(--white);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .cond-card:hover {
+      border-color: var(--lime);
+      transform: translateY(-3px);
+    }
+
+    .cond-icon { font-size: 26px; margin-bottom: 16px; }
+
+    .cond-card h3 {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--lime);
+      margin-bottom: 12px;
+    }
+
+    .cond-card p {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.68);
+    }
+
+    /* ===== CTA ===== */
+    .cta {
+      background: var(--cream);
+      padding: 104px 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-deco-1 {
+      position: absolute;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      background: var(--purple);
+      opacity: 0.07;
+      bottom: -140px; left: -100px;
+    }
+
+    .cta-deco-2 {
+      position: absolute;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: var(--lime);
+      opacity: 0.09;
+      top: -80px; right: -60px;
+    }
+
+    .cta-sparkles {
+      display: block;
+      font-size: 18px;
+      color: var(--purple);
+      letter-spacing: 20px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(52px, 8vw, 100px);
+      letter-spacing: -5px;
+      text-transform: uppercase;
+      line-height: 0.88;
+      color: var(--black);
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-title .hl {
+      background: var(--lime);
+      padding: 0 10px;
+      display: inline-block;
+      transform: rotate(-1.5deg);
+    }
+
+    .cta-sub {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.65;
+      max-width: 480px;
+      margin: 0 auto 52px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--black);
+      color: var(--lime);
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 22px 52px;
+      border-radius: 100px;
+      border: 2px solid var(--black);
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-btn:hover {
+      background: var(--lime);
+      color: var(--black);
+      transform: translateY(-4px);
+    }
+
+    .cta-hint {
+      font-size: 11.5px;
+      color: #999;
+      margin-top: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ===== SCOPE ===== */
+    .scope {
+      background: var(--cream);
+      padding: 0 64px 48px;
+      text-align: center;
+    }
+
+    .scope p {
+      font-size: 12px;
+      color: #999;
+      font-style: italic;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--black);
+      border-top: 2px solid var(--lime);
+      padding: 36px 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer .logo { font-size: 24px; }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--lime); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.28);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero { padding: 32px 24px 64px; min-height: auto; }
+      .hero-title { font-size: 54px; letter-spacing: -3px; }
+      .hero-badge { font-size: 10px; padding: 7px 13px; }
+      .intro, .req, .cta, .scope { padding: 56px 24px; }
+      .resp, .cond { padding: 56px 24px; }
+      .intro-grid, .req-grid, .cond-grid { grid-template-columns: 1fr; }
+      .resp-item { grid-template-columns: 64px 1fr; gap: 16px; }
+      .resp-num { font-size: 40px; }
+      footer { flex-direction: column; text-align: center; padding: 32px 24px; }
+      .footer-links { justify-content: center; }
+      .scope { padding: 0 24px 36px; }
+      .sunburst { width: 320px; height: 320px; }
+      .tri-fan { width: 100px; height: 110px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+
+  <!-- Sunburst bottom-right -->
+  <svg class="sunburst" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(260,260)">
+      <line x1="0" y1="0" x2="260" y2="0"   stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="240" y2="93"  stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="184" y2="184" stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="93"  y2="240" stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="0"   y2="260" stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="-93" y2="240" stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="-184" y2="184" stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="-240" y2="93" stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="-260" y2="0"  stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="-240" y2="-93" stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="-184" y2="-184" stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="-93" y2="-240" stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="0"   y2="-260" stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="93"  y2="-240" stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="184" y2="-184" stroke="#C8F000" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="240" y2="-93" stroke="#C8F000" stroke-width="1.5"/>
+      <!-- secondary rays -->
+      <line x1="0" y1="0" x2="256" y2="46"  stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="222" y2="138" stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="138" y2="222" stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="46"  y2="256" stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="-46" y2="256" stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="-138" y2="222" stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="-222" y2="138" stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="-256" y2="46"  stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="-256" y2="-46"  stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="-222" y2="-138" stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="-138" y2="-222" stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="-46"  y2="-256" stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="46"   y2="-256" stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="138"  y2="-222" stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="222"  y2="-138" stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+      <line x1="0" y1="0" x2="256"  y2="-46"  stroke="#C8F000" stroke-width="0.8" opacity="0.6"/>
+    </g>
+  </svg>
+
+  <!-- Triangle fan top-right -->
+  <svg class="tri-fan" viewBox="0 0 180 200" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="0,200 180,0 180,200" fill="#8C93D9"/>
+    <polygon points="0,200 180,0 180,200" fill="#8C93D9" transform="rotate(-10,90,100)" opacity="0.75"/>
+    <polygon points="0,200 180,0 180,200" fill="#8C93D9" transform="rotate(-20,90,100)" opacity="0.5"/>
+    <polygon points="0,200 180,0 180,200" fill="#8C93D9" transform="rotate(-30,90,100)" opacity="0.28"/>
+  </svg>
+
+  <span class="hero-sparkle">✦</span>
+
+  <div class="hero-top">
+    <div class="logo">KODO<span class="sparkle">✦</span>HR</div>
+    <div class="hero-badge">Búsqueda abierta 🖤</div>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Córdoba · Part-time · Por objetivos</p>
+    <h1 class="hero-title">
+      Marketing<br>
+      <span class="hl">Manager</span>
+    </h1>
+    <p class="hero-subtitle">Gestión integral de marketing B2B/B2C — offline y digital, orgánico y pago. Trabajás por objetivos, no por horario. Reportás directo a las founders.</p>
+  </div>
+</section>
+
+<!-- ===== TICKER ===== -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    &nbsp;&nbsp;✦&nbsp; Kodo HR &nbsp;·&nbsp; Marketing Manager &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Part-time &nbsp;·&nbsp; Por objetivos &nbsp;·&nbsp; B2B + B2C &nbsp;·&nbsp;
+    ✦&nbsp; Kodo HR &nbsp;·&nbsp; Marketing Manager &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Part-time &nbsp;·&nbsp; Por objetivos &nbsp;·&nbsp; B2B + B2C &nbsp;·&nbsp;
+    ✦&nbsp; Kodo HR &nbsp;·&nbsp; Marketing Manager &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Part-time &nbsp;·&nbsp; Por objetivos &nbsp;·&nbsp; B2B + B2C &nbsp;·&nbsp;
+    ✦&nbsp; Kodo HR &nbsp;·&nbsp; Marketing Manager &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Part-time &nbsp;·&nbsp; Por objetivos &nbsp;·&nbsp; B2B + B2C &nbsp;·&nbsp;
+  </div>
+</div>
+
+<!-- ===== INTRO ===== -->
+<section class="intro">
+  <div class="intro-grid">
+    <div class="intro-card">
+      <span class="intro-tag lime">Sobre Kodo</span>
+      <h2>Un estudio de Talento que no se banca el statu quo.</h2>
+      <p>Kodo HR es un estudio de Talento con servicios B2B y B2C en el ámbito de Recursos Humanos y Liderazgo. Buscamos a alguien que tome la batuta del marketing y ayude a que dejemos de depender casi exclusivamente de referidos para generar oportunidades de negocio.</p>
+    </div>
+    <div class="intro-card">
+      <span class="intro-tag purple">Misión del rol</span>
+      <h2>Gestión integral de marketing, de punta a punta.</h2>
+      <p>Offline y digital, orgánico y pago. Diseñás el plan, lo ejecutás y lo medís. Los KPIs son tuyos — los proponés vos y los validamos juntas. Trabajás por objetivos y entregables, no por horario fijo. Reportás directo a las founders.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESPONSABILIDADES ===== -->
+<section class="resp">
+  <div class="label-outline label-lime">Responsabilidades</div>
+  <h2 class="resp-title">Lo que <em>hacés</em><br>en este rol.</h2>
+
+  <div class="resp-list">
+    <div class="resp-item">
+      <div class="resp-num">01</div>
+      <div class="resp-body">
+        <h3>Plan de Marketing Integral</h3>
+        <p>Diseñás el plan de marketing de Kodo y proponés las métricas asociadas. Los KPIs quedan establecidos como compromisos del período una vez validados por las founders — esa validación es parte del proceso, no una formalidad. Todo lo demás responde a este plan, directa o indirectamente.</p>
+      </div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">02</div>
+      <div class="resp-body">
+        <h3>Offline — Presencia de marca</h3>
+        <p>Definís trimestralmente el calendario de eventos a los que asistir como marca, el objetivo de cada uno, si lleva cobertura y qué output se espera (contenido, contactos, alianzas).</p>
+      </div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">03</div>
+      <div class="resp-body">
+        <h3>Digital orgánico — Instagram @kodohr_ + LinkedIn</h3>
+        <p>Entregás la planificación mensual atada a objetivos de negocio, dos semanas antes del inicio de cada mes. Gestionás el ciclo de producción completo: semana de filmación con el equipo → diseño y edición de piezas audiovisuales y copies para pre-validación → ajustes → publicación. En LinkedIn, decidís caso por caso si la pieza sale desde un perfil personal (con CTA a Kodo, reposteada por la página) o viceversa — usando los perfiles personales tácticamente, sin gestionarlos de forma integral.</p>
+      </div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">04</div>
+      <div class="resp-body">
+        <h3>Digital pago — Meta Ads</h3>
+        <p>Primeros 1-2 meses: onboarding en el negocio y los procesos. A partir de ahí, si tenés el conocimiento, definís y gestionás campañas de Meta Ads; si no, coordinás con un proveedor externo.</p>
+      </div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">05</div>
+      <div class="resp-body">
+        <h3>Análisis y reporting estratégico</h3>
+        <p>Revisás mensualmente qué funcionó y qué no por canal/formato, cruzado contra métricas de negocio (leads, conversaciones comerciales, costo por lead) — no solo alcance o likes. Proponés ajustes concretos, entregás un reporte mensual y te reunís con founders al cierre de cada mes. Una revisión más profunda trimestral define si se continúa, ajusta o discontinúa cada frente de trabajo.</p>
+      </div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">06</div>
+      <div class="resp-body">
+        <h3>Trazabilidad</h3>
+        <p>Garantizás que cada lead y cada evento quede registrado con su origen, manteniendo un registro ordenado de métricas por canal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REQUISITOS ===== -->
+<section class="req">
+  <div class="label-outline" style="border-color:var(--black); color:var(--black); margin-bottom:36px; transform:rotate(-1deg);">Requisitos</div>
+  <h2 class="req-title">Lo que<br>buscamos.</h2>
+  <div class="req-grid">
+    <div class="req-card excluyentes">
+      <h3>✦ Excluyentes</h3>
+      <ul>
+        <li>Experiencia comprobable en marketing digital y community management (mínimo 2-3 años, freelance o in-house).</li>
+        <li>Diseño de piezas gráficas con Canva y/o Illustrator.</li>
+        <li>Producción y edición de contenido (foto/video) con herramientas como CapCut, Premiere o similar.</li>
+        <li>Manejo de Instagram y LinkedIn a nivel estratégico — no solo publicar, entender qué funciona y por qué.</li>
+        <li>Autonomía real: vas a trabajar por objetivos, sin supervisión diaria.</li>
+        <li>Buena escritura y comunicación — copy claro, capaz de adaptar tono de marca.</li>
+      </ul>
+    </div>
+    <div class="req-card deseables">
+      <h3>✦ Deseable</h3>
+      <ul>
+        <li>Experiencia en Meta Ads (gestión de campañas, optimización, reporting).</li>
+        <li>Experiencia previa en sectores B2B o de servicios profesionales.</li>
+        <li>Uso de IA generativa como herramienta de producción (guiones, edición asistida, research) — siempre con criterio editorial humano.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONDICIONES ===== -->
+<section class="cond">
+  <h2 class="cond-title">Las <em>condiciones</em><br>del juego.</h2>
+  <div class="cond-grid">
+    <div class="cond-card">
+      <div class="cond-icon">📍</div>
+      <h3>Modalidad</h3>
+      <p>Freelance / monotributista. Dedicación acorde a entregables — no es un puesto de 8 a 5. Se evalúa cumplimiento de objetivos y deadlines, no horas en pantalla. Requiere disponibilidad para jornadas de producción presencial en Córdoba Capital al menos una vez por mes.</p>
+    </div>
+    <div class="cond-card">
+      <div class="cond-icon">💰</div>
+      <h3>Compensación</h3>
+      <p>No tenemos un número fijo ni una estructura predefinida. Nos importa que funcione para las dos partes. Podés proponer lo que tenga sentido para vos: mensual, por proyecto, atado a KPIs, con o sin variable, con plazos, combinaciones. Contanos cómo trabajás y armamos algo juntos.</p>
+    </div>
+    <div class="cond-card">
+      <div class="cond-icon">📊</div>
+      <h3>Performance</h3>
+      <p>El desempeño se evalúa contra los KPIs acordados al inicio de cada ciclo (publicaciones por canal, leads, CPL, conversaciones comerciales no-referidas, trazabilidad de origen) y contra el cumplimiento de los plazos de entrega.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="cta-deco-1"></div>
+  <div class="cta-deco-2"></div>
+  <span class="cta-sparkles">✦ &nbsp; ✦ &nbsp; ✦</span>
+  <h2 class="cta-title">
+    ¿Sos<br><span class="hl">vos?</span>
+  </h2>
+  <p class="cta-sub">Mandanos tu propuesta — contanos quién sos, qué hacés y por qué Kodo. Sin formularios, sin filtros. Directo a las founders.</p>
+  <a href="mailto:info@kodohr.com?subject=Propuesta%20de%20trabajo%20%E2%80%94%20Marketing%20Manager%20Kodo%20HR" class="cta-btn">
+    Enviar mi propuesta a Kodo ✦
+  </a>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="logo">KODO<span class="sparkle">✦</span>HR</div>
+  <nav class="footer-links">
+    <a href="https://www.instagram.com/kodohr_" target="_blank" rel="noopener">@kodohr_</a>
+    <a href="https://www.linkedin.com/company/kodo-hr" target="_blank" rel="noopener">LinkedIn · Kodo HR</a>
+    <a href="mailto:info@kodohr.com">info@kodohr.com</a>
+    <a href="https://www.kodohr.com.ar" target="_blank" rel="noopener">www.kodohr.com.ar</a>
+  </nav>
+  <div class="footer-copy">Kodo HR · Córdoba, Argentina 🖤</div>
+</footer>
+
+</body>
+</html>
